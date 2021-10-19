@@ -1,6 +1,7 @@
 import React from "react";
 
 import { ColumnContainer, ColumnTitle } from "./styles";
+import { AddNewItem } from "./AddNewItem";
 
 type ColumnProps = {
   children: React.ReactNode;
@@ -12,6 +13,11 @@ export const Column = ({ children, text }: ColumnProps) => {
     <ColumnContainer>
       <ColumnTitle>{text}</ColumnTitle>
       {children}
+      <AddNewItem
+        toogleButtonText="+ Add another task"
+        onAdd={console.log}
+        dark
+      />
     </ColumnContainer>
   );
 };
