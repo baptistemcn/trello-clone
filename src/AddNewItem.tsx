@@ -1,0 +1,31 @@
+import React, { useState } from "react";
+
+import { AddItemButton } from "./styles";
+import { NewItemForm } from "./NewItemForm";
+
+type AddNewItemProps = {
+  onAdd(text: string): void;
+  toogleButtonText: string;
+  dark?: boolean;
+};
+
+export const AddNewItem = (props: AddNewItemProps) => {
+  const [showForm, setShowForm] = useState<boolean>(false);
+  const { onAdd, toogleButtonText, dark } = props;
+
+  if (showForm) {
+    return (
+      <NewItemForm
+        onAdd={(text) => {
+          onAdd(text);
+          setShowForm(false);
+        }}
+      />
+    );
+  }
+  return (
+    <AddItemButton dark={dark} onClick={() => setShowForm(true)}>
+      {toogleButtonText}
+    </AddItemButton>
+  );
+};

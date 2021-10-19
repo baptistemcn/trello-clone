@@ -1,7 +1,12 @@
 import React from "react";
 
 import { AppContainer } from "./styles";
+import { AddNewItem } from "./AddNewItem";
 
 export const App = () => {
-  return <AppContainer>Columns will be here</AppContainer>;
+  return (
+    <AppContainer>
+      <AddNewItem toogleButtonText="+ Add another list" onAdd={console.log} />
+    </AppContainer>
+  );
 };
