@@ -22,7 +22,7 @@ export const Column = ({ id, text }: ColumnProps) => {
       ))}
       <AddNewItem
         toogleButtonText="+ Add another task"
-        onAdd={(text) => dispatch(addTask(id, text))}
+        onAdd={(text) => dispatch(addTask(text, id))}
         dark
       />
     </ColumnContainer>
