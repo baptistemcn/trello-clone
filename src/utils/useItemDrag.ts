@@ -1,5 +1,5 @@
 import { useDrag } from "react-dnd";
-import { DragItem } from "../dragItem";
+import { DragItem } from "../DragItem";
 import { setDraggedItem } from "../state/actions";
 import { useAppState } from "../state/AppStateContext";
 

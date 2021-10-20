@@ -1,4 +1,4 @@
-import { DragItem } from "../dragItem";
+import { DragItem } from "../DragItem";
 
 export type Action =
   | {

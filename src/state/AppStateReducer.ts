@@ -1,7 +1,7 @@
 import { nanoid } from "nanoid";
 import { findItemIndexById, moveItem } from "../utils/arrayUtils";
 import { Action } from "./actions";
-import { DragItem } from "../dragItem";
+import { DragItem } from "../DragItem";
 
 export type Task = {
   id: string;
