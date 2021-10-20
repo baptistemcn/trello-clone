@@ -1,13 +1,12 @@
 import React, { useRef } from "react";
 import { useDrop } from "react-dnd";
-
-import { ColumnContainer, ColumnTitle } from "./styles";
 import { AddNewItem } from "./AddNewItem";
 import { Card } from "./Card";
-import { useAppState } from "./state/AppStateContext";
 import { addTask, moveList } from "./state/actions";
-import { useItemDrag } from "./utils/useItemDrag";
+import { useAppState } from "./state/AppStateContext";
+import { ColumnContainer, ColumnTitle } from "./styles";
 import { isHidden } from "./utils/isHidden";
+import { useItemDrag } from "./utils/useItemDrag";
 
 type ColumnProps = {
   id: string;
@@ -20,7 +19,7 @@ export const Column = ({ id, text, isPreview }: ColumnProps) => {
   const tasks = getTasksByListId(id);
   const ref = useRef<HTMLDivElement>(null);
   const [, drop] = useDrop({
-    accept: "COLUMN",
+    accept: ["COLUMN", "CARD"],
     hover() {
       if (!draggedItem) {
         return;
