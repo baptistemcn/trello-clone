@@ -4,6 +4,7 @@ import { ColumnContainer, ColumnTitle } from "./styles";
 import { AddNewItem } from "./AddNewItem";
 import { Card } from "./Card";
 import { useAppState } from "./state/AppStateContext";
+import { addTask } from "./state/actions";
 
 type ColumnProps = {
   id: string;
@@ -11,7 +12,7 @@ type ColumnProps = {
 };
 
 export const Column = ({ id, text }: ColumnProps) => {
-  const { getTasksByListId } = useAppState();
+  const { getTasksByListId, dispatch } = useAppState();
   const tasks = getTasksByListId(id);
   return (
     <ColumnContainer>
@@ -21,7 +22,7 @@ export const Column = ({ id, text }: ColumnProps) => {
       ))}
       <AddNewItem
         toogleButtonText="+ Add another task"
-        onAdd={console.log}
+        onAdd={(text) => dispatch(addTask(id, text))}
         dark
       />
     </ColumnContainer>
