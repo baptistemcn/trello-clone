@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import React, { createContext, useContext } from "react";
 
 type Task = {
   id: string;
@@ -46,6 +46,10 @@ const appData: AppState = {
       tasks: [{ id: "c3", text: "Begin to use static typing" }],
     },
   ],
+};
+
+export const useAppState = () => {
+  return useContext(AppStateContext);
 };
 
 export const AppStateProvider = ({ children }: AppStateProviderProps) => {
