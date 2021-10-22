@@ -5,7 +5,7 @@ export const save = (payload: AppState) => {
     method: "POST",
     headers: {
       Accept: "application/json",
-      "Content-type": "application/json",
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(payload),
   }).then((response) => {
@@ -21,7 +21,7 @@ export const load = () => {
   return fetch(`${process.env.REACT_APP_BACKEND_ENDPOINT}/load`).then(
     (response) => {
       if (response.ok) {
-        response.json() as Promise<AppState>;
+        return response.json() as Promise<AppState>;
       } else {
         throw new Error("Error while loading the state.");
       }
